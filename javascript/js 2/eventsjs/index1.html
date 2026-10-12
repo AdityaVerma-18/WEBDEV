@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Events</title>
+</head>
+
+<!-- Basic styling for dark background -->
+<body style="background-color: #414141; color: aliceblue;">
+
+    <h2>Amazing Images</h2>
+
+    <div>
+
+        <!-- Unordered list containing images -->
+        <ul id="images">
+
+            <!-- Image 1 -->
+            <li>
+                <img width="200px"
+                    id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop">
+            </li>
+
+            <!-- Image 2 -->
+            <li>
+                <img width="200px"
+                    id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="japan">
+            </li>
+
+            <!-- Image 3 -->
+            <li>
+                <img width="200px"
+                    id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="river">
+            </li>
+
+            <!-- Image 4 -->
+            <li>
+                <img width="200px"
+                    id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="owl">
+            </li>
+
+            <!-- Image 5 -->
+            <li>
+                <img width="200px"
+                    id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="prayer">
+            </li>
+
+            <!-- Google link -->
+            <li>
+                <a style="color: aliceblue;"
+                    href="https://google.com"
+                    id="google">
+                    Google
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+<script>
+
+    // ======================================================
+    // Different ways of handling events in JavaScript
+    // ======================================================
+
+    // Method 1: Using onclick (not preferred for large projects)
+
+    // document.getElementById('owl').onclick = function () {
+    //     alert("owl clicked");
+    // }
+
+    // Older event handling methods
+    // attachEvent() --> old Internet Explorer method
+    // jQuery method --> on()
+
+
+    // ======================================================
+    // Important Event Object Properties in JavaScript
+    // ======================================================
+
+    // When an event occurs
+    // (click, keyboard press, mouse move, etc.),
+    // JavaScript automatically creates an EVENT OBJECT.
+    //
+    // This object contains useful information
+    // about the event.
+    //
+    // Example:
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e); // complete event object
+
+    // })
+
+
+
+    // ======================================================
+    // 1. type
+    // ======================================================
+
+    // Returns the TYPE of event triggered
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e.type);
+
+    // })
+
+    // Example output:
+    // click
+    // mouseover
+    // keydown
+    // keyup
+    // submit
+
+
+
+    // ======================================================
+    // 2. timeStamp
+    // ======================================================
+
+    // Returns the time when event happened
+    // Measured in milliseconds
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e.timeStamp);
+
+    // })
+
+
+
+    // ======================================================
+    // 3. defaultPrevented
+    // ======================================================
+
+    // Checks whether browser default behaviour
+    // is prevented or not
+
+    // Returns:
+    // true
+    // false
+
+    // document.getElementById('google')
+    // .addEventListener('click', function (e) {
+
+    //     e.preventDefault();
+
+    //     console.log(e.defaultPrevented);
+
+    // })
+
+
+
+    // ======================================================
+    // 4. target
+    // ======================================================
+
+    // Returns the ACTUAL element clicked
+
+    // document.querySelector('#images')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e.target);
+
+    // })
+
+    // Example:
+    //
+    // If owl image clicked:
+    //
+    // <img id="owl">
+
+
+
+    // ======================================================
+    // 5. currentTarget
+    // ======================================================
+
+    // Returns the element
+    // where event listener is attached
+
+    // document.querySelector('#images')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e.target);
+    //     // actual clicked element
+
+    //     console.log(e.currentTarget);
+    //     // element where listener is attached
+
+    // })
+
+    // Example:
+    //
+    // Click on image
+    //
+    // target         --> img
+    // currentTarget  --> ul
+
+
+
+    // ======================================================
+    // Difference Between target & currentTarget
+    // ======================================================
+
+    // target
+    // --> tells WHAT was clicked
+
+    // currentTarget
+    // --> tells WHERE listener is attached
+
+    // Example:
+    //
+    // Click owl image
+    //
+    // target         --> img
+    // currentTarget  --> ul
+
+
+
+    // ======================================================
+    // 6. srcElement
+    // ======================================================
+
+    // Older version of target
+    // Mostly used in older browsers
+
+    // document.querySelector('#images')
+    // .addEventListener('click', function (e) {
+
+    //     console.log(e.srcElement);
+
+    // })
+
+
+
+    // ======================================================
+    // 7. toElement
+    // ======================================================
+
+    // Used in mouse events
+    // Shows element mouse moved TO
+
+    // document.addEventListener('mouseout', function (e) {
+
+    //     console.log(e.toElement);
+
+    // })
+
+
+
+    // ======================================================
+    // 8. clientX & clientY
+    // ======================================================
+
+    // Mouse position
+    // relative to browser window
+
+    // document.addEventListener('click', function (e) {
+
+    //     console.log("X:", e.clientX);
+    //     console.log("Y:", e.clientY);
+
+    // })
+
+
+
+    // ======================================================
+    // 9. screenX & screenY
+    // ======================================================
+
+    // Mouse position
+    // relative to full computer screen
+
+    // document.addEventListener('click', function (e) {
+
+    //     console.log("screenX:", e.screenX);
+    //     console.log("screenY:", e.screenY);
+
+    // })
+
+
+
+    // ======================================================
+    // Difference Between client & screen
+    // ======================================================
+
+    // clientX / clientY
+    // --> browser viewport position
+
+    // screenX / screenY
+    // --> monitor screen position
+
+
+
+    // ======================================================
+    // 10. altKey
+    // ======================================================
+
+    // Returns true
+    // if ALT key was pressed
+
+    // document.addEventListener('click', function (e) {
+
+    //     console.log(e.altKey);
+
+    // })
+
+
+
+    // ======================================================
+    // 11. ctrlKey
+    // ======================================================
+
+    // Returns true
+    // if CTRL key was pressed
+
+    // document.addEventListener('click', function (e) {
+
+    //     console.log(e.ctrlKey);
+
+    // })
+
+
+
+    // ======================================================
+    // 12. shiftKey
+    // ======================================================
+
+    // Returns true
+    // if SHIFT key was pressed
+
+    // document.addEventListener('click', function (e) {
+
+    //     console.log(e.shiftKey);
+
+    // })
+
+
+
+    // ======================================================
+    // 13. keyCode
+    // ======================================================
+
+    // Gives keyboard key code
+    // (Deprecated / old method)
+
+    // Better methods:
+    // e.key
+    // e.code
+
+    // document.addEventListener('keydown', function (e) {
+
+    //     console.log(e.key);      // a
+    //     console.log(e.code);     // KeyA
+    //     console.log(e.keyCode);  // 65
+
+    // })
+
+
+
+    // ======================================================
+    // BONUS IMPORTANT EVENT METHODS
+    // ======================================================
+
+    // preventDefault()
+    // Stops browser default behaviour
+
+    // e.preventDefault();
+
+
+    // stopPropagation()
+    // Stops event propagation
+    // (bubbling or capturing)
+
+    // e.stopPropagation();
+
+
+
+    // ======================================================
+    // Capturing vs Bubbling
+    // ======================================================
+
+    // Event propagation happens in 3 phases:
+    //
+    // 1. Capturing Phase
+    // 2. Target Phase
+    // 3. Bubbling Phase
+
+
+    // ======================================================
+    // 1. Event Bubbling (Default)
+    // ======================================================
+
+    // Bubbling means:
+    //
+    // Child --> Parent
+    //
+    // Flow:
+    // img --> li --> ul --> body --> html --> document
+
+    // Example:
+
+    // document.getElementById('images')
+    // .addEventListener('click', function () {
+
+    //     console.log("UL clicked");
+
+    // }, false);
+
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function () {
+
+    //     console.log("Owl clicked");
+
+    // }, false);
+
+
+    // Output when owl clicked:
+    //
+    // Owl clicked
+    // UL clicked
+    //
+    // Because bubbling moves
+    // child --> parent
+
+
+    // ======================================================
+    // stopPropagation()
+    // ======================================================
+
+    // Stops event from moving further
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function (e) {
+
+    //     console.log("Owl clicked");
+
+    //     e.stopPropagation();
+
+    // }, false);
+
+
+    // Output:
+    //
+    // Owl clicked
+    //
+    // UL event will NOT execute
+
+
+
+    // ======================================================
+    // 2. Event Capturing
+    // ======================================================
+
+    // Capturing means:
+    //
+    // Parent --> Child
+    //
+    // Flow:
+    // document --> html --> body --> ul --> li --> img
+
+    // To enable capturing:
+    // pass TRUE in addEventListener
+
+    // Example:
+
+    // document.getElementById('images')
+    // .addEventListener('click', function () {
+
+    //     console.log("UL clicked");
+
+    // }, true);
+
+
+    // document.getElementById('owl')
+    // .addEventListener('click', function () {
+
+    //     console.log("Owl clicked");
+
+    // }, true);
+
+
+    // Output when owl clicked:
+    //
+    // UL clicked
+    // Owl clicked
+    //
+    // Because capturing moves
+    // parent --> child
+
+
+
+    // ======================================================
+    // Difference Between Bubbling & Capturing
+    // ======================================================
+
+    // Bubbling:
+    //
+    // Child --> Parent
+    // false (default)
+
+    // Capturing:
+    //
+    // Parent --> Child
+    // true
+
+
+
+    // ======================================================
+    // Prevent Default Behaviour Example
+    // ======================================================
+
+    // document.getElementById('google')
+    // .addEventListener('click', function (e) {
+
+    //     // Prevents link from opening
+    //     e.preventDefault();
+
+    //     // Stops propagation
+    //     e.stopPropagation();
+
+    //     console.log("Google clicked");
+
+    // }, false);
+
+
+
+    // ======================================================
+    // Event Delegation
+    // ======================================================
+
+    // Instead of attaching event listener
+    // to every image individually,
+    // we attach ONE listener to parent.
+
+    // This is more efficient
+    // and improves performance.
+
+
+    document.querySelector('#images')
+    .addEventListener('click', function (e) {
+
+        // Prints clicked tag name
+        console.log(e.target.tagName);
+
+
+        // Check if clicked element is image
+        // Prevents accidental deletion
+        // of li or anchor tag
+
+        if (e.target.tagName === 'IMG') {
+
+            // Prints image id
+            console.log(e.target.id);
+
+            // Select parent LI
+            let removeIt = e.target.parentNode;
+
+            // Remove image
+            removeIt.remove();
+        }
+
+    });
+
+
+    // Alternative old method
+    // removeIt.parentNode.removeChild(removeIt);
+
+</script>
+
+</html>

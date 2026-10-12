@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Dom</title>
+</head>
+
+<!-- Styling added directly to body -->
+<body style="background-color:black;color: bisque;">
+
+    <!-- Parent div containing all days -->
+    <div class="parent">
+
+        <!-- Child elements -->
+        <div class="day">monday</div>
+        <div class="day">tuesday</div>
+        <div class="day">wednesday</div>
+        <div class="day">thursday</div>
+
+    </div>
+</body>
+
+<script>
+
+    // Select the parent element using class name
+    const parent = document.querySelector('.parent')
+
+    // Print complete parent element
+    console.log(parent);
+
+    // Access child element by index
+    // Index starts from 0
+    // console.log(parent.children[1].innerHTML);
+
+    // Loop through all child elements
+    // children returns HTMLCollection
+    for(let i = 0; i < parent.children.length; i++){
+
+        // Print inner text of each child
+        console.log(parent.children[i].innerHTML);
+    }
+
+    // Get first child element
+    console.log(parent.firstElementChild);
+
+    // Get last child element
+    console.log(parent.lastElementChild);
+
+    // Select first element having class "day"
+    const first = document.querySelector('.day');
+
+    // Print selected element
+    console.log(first);
+
+    // Get parent of selected element
+    console.log(first.parentElement);
+
+    // Get next sibling element
+    console.log(first.nextElementSibling);
+
+    // childNodes returns all nodes
+    // Includes text nodes (spaces, line breaks) + elements
+    console.log("node:", parent.childNodes)
+    
+</script>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes page responsive -->
+    <title>Document</title>
+</head>
+
+<!-- Basic styling -->
+<body style="background-color:black;color: bisque;">
+
+    <!-- Unordered list -->
+    <ul class="language">
+
+        <!-- Existing list item -->
+        <li>javascript</li>
+
+    </ul>
+</body>
+
+<script>
+
+    // ==========================================================
+    // 📌 FUNCTION 1 → Add Language using innerHTML
+    // ==========================================================
+
+    function addLanguage(langname){
+
+        // Create a new <li> element
+        const li = document.createElement('li');
+
+        // Add text inside li using template literal
+        li.innerHTML = `${langname}`;
+
+        // Select ul and append new li
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Calling function
+    addLanguage("python");
+    addLanguage("typescript");
+
+
+    /*
+    Current List:
+    javascript
+    python
+    typescript
+    */
+
+
+
+    // ==========================================================
+    // 📌 FUNCTION 2 → Optimized Way using createTextNode()
+    // ==========================================================
+
+    function optilanguage(langname){
+
+        // Create new li element
+        const li = document.createElement('li');
+
+        // Better approach:
+        // createTextNode is more optimized than innerHTML
+        // because it directly creates text node
+        li.appendChild(document.createTextNode(langname));
+
+        // Append li inside ul
+        document.querySelector('.language').appendChild(li);
+    }
+
+    // Calling optimized function
+    optilanguage("golang");
+
+
+    /*
+    Updated List:
+    javascript
+    python
+    typescript
+    golang
+    */
+
+
+
+    // ==========================================================
+    // 📌 Selecting Element using nth-child()
+    // ==========================================================
+
+    // Select 2nd list item
+    const secondlang = document.querySelector("li:nth-child(2)");
+
+    console.log(secondlang);
+
+    /*
+    Output:
+    <li>python</li>
+    */
+
+
+    // ==========================================================
+    // 📌 Replace Existing Element
+    // ==========================================================
+
+    // Create new li element
+    const newli = document.createElement('li');
+
+    // Add text inside it
+    newli.textContent = "mojo";
+
+    // Replace 2nd li (python) with mojo
+    secondlang.replaceWith(newli);
+
+
+    /*
+    Updated List:
+    javascript
+    mojo
+    typescript
+    golang
+    */
+
+
+
+    // ==========================================================
+    // 📌 Replace First Element using outerHTML
+    // ==========================================================
+
+    // Select first li
+    const firstLang = document.querySelector("li:first-child");
+
+    // Replace entire element
+    firstLang.outerHTML = '<li>Typescript</li>'
+
+
+    /*
+    Updated List:
+    Typescript
+    mojo
+    typescript
+    golang
+    */
+
+
+
+    // ==========================================================
+    // 📌 Remove Last Element
+    // ==========================================================
+
+    // Select last li
+    const lastlang = document.querySelector('li:last-child')
+
+    // Remove element
+    lastlang.remove();
+
+
+    /*
+    Final List:
+    Typescript
+    mojo
+    typescript
+    */
+
+
+
+    // ==========================================================
+    // 🧠 Important DOM Methods Summary
+    // ==========================================================
+
+    /*
+    1. createElement()
+       → Creates new HTML element
+
+    2. innerHTML
+       → Adds HTML/text inside element
+
+    3. createTextNode()
+       → Creates text node (optimized)
+
+    4. appendChild()
+       → Adds element inside parent
+
+    5. querySelector()
+       → Select first matching element
+
+    6. nth-child(n)
+       → Select nth element
+
+    7. replaceWith()
+       → Replaces existing element
+
+    8. outerHTML
+       → Replaces full HTML element
+
+    9. remove()
+       → Deletes element
+    */
+
+</script>
+</html>

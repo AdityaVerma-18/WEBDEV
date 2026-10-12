@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>i am peroo player</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const sayaditya=function(){
+        console.log("aditya");
+    }
+    const changetext=function(){
+        document.querySelector('h1').innerText="i am noob";
+    }
+    const timeout=setTimeout(changetext,2000)
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(timeout);
+        console.log("stopped");
+    })
+
+</script>
+</html>
